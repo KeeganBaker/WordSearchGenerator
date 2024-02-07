@@ -1,6 +1,6 @@
 // Name: Keegan Baker
 // Date: 02/06/2024
-// Project: CS 145 
+// Project: CS 145 Assignment 1
 // Purpose: This program will allow a user to generate their own word search based on 
 // their chosen words. 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -19,7 +19,7 @@ public class WordSearchClient {
     do {
         // command list
         System.out.println
-        ("=================================================================");
+        ("\n=================================================================");
         System.out.println("Welcome to the word search generator!");
         System.out.println("This program allows you to create a word search puzzle.\n");
         System.out.println("Enter a command to start:");
@@ -34,11 +34,8 @@ public class WordSearchClient {
         String commandString = sc.next();
         command = commandString.charAt(0);
         switch (command) {
-
         case 'n':
-            if (newGrid){
-                break;
-            }
+        case 'N':
             newGrid = true;
 
             // prompt user to enter words
@@ -46,29 +43,37 @@ public class WordSearchClient {
             myWordString.enterWords();
 
             // create a new word search using users words
-            WordSearchGrid temp = new WordSearchGrid(newGrid, myWordString.getWordLine(), 
+            myWordSearch = new WordSearchGrid(newGrid, myWordString.getWordLine(), 
             myWordString.getWordCount(), myWordString.getLongest());
-            myWordSearch = temp;
         break;
 
         case 'v':
+        case 'V':
             // print out a created word search
-            System.out.println(myWordSearch.viewGrid());
-            // test method to verify values
-            myWordSearch.wordEntryTest();
+            myWordSearch.printGrid();
         break;
 
         case 'k':
+        case 'K':
             // print out the key to a created word search
+            myWordSearch.printKey();
         break;
 
         case 'q':
+        case 'Q':
             // quit the program
-            System.out.println("Thanks for playing!\n");
+            System.out.println("Goodbye!\n");
         break;
 
+        // Case for tests 
+        // case 't':
+        //     int length = sc.nextInt();
+        //     System.out.println("Array length: " + myWordSearch.arrayLength(length));
+        //     myWordSearch.wordEntryTest();
+        // break;
+
         default: 
-            System.out.println("!! Invalid command, try again !!");
+            System.out.println("!! INVALID COMMAND. TRY AGAIN !!");
         }
     } while (command != 'q' && command != 'Q');
     sc.close();

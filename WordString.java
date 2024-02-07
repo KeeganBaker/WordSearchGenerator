@@ -1,3 +1,10 @@
+// File name: WordString
+// Name: Keegan Baker
+// Date: 02/06/2024
+// Project: CS 145 Assignment 1
+// Gets user input to create the necessary objets/data to feed into WordSearchGrid
+//////////////////////////////////////////////////////////////////////////////////////////////////
+
 import java.util.Scanner;
 
 public class WordString {
@@ -6,6 +13,7 @@ public class WordString {
     String word = "";
     String wordLine = "";
 
+    // constructor gets users list of words, and tracks needed variables
     public void enterWords() {
         System.out.println("Enter one word at a time, hit enter after each word.");
         System.out.println("Then, enter \"done\" again when you are finished.");
